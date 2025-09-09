@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>TimeMaster</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <ul>
+      <li class="active" onclick="showPage('home', event)">🏠 الرئيسية</li>
+      <li onclick="showPage('calendar', event)">📅 التقويم</li>
+      <li onclick="showPage('table', event)">📋 الجدول</li>
+      <li onclick="showPage('tasks', event)">✅ المهام</li>
+    </ul>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="title">⏰ TimeMaster</div>
+      <div class="actions">
+        <button class="icon-btn" onclick="showNotifications()">🔔</button>
+        <button class="icon-btn" onclick="showProfile()">👤</button>
+      </div>
+    </div>
+
+    <!-- Pages -->
+    <div id="home">
+      <h1>كن سيد وقتك</h1>
+      <p>مرحبًا بك في تطبيق <b>TimeMaster</b> لإدارة وقتك بكفاءة.</p>
+    </div>
+
+    <!-- Calendar -->
+  <div id="calendar" class="hidden">
+  <h1>📅 التقويم</h1>
+  <div class="calendar" id="calendar-days"></div>
+
+  <!-- واجهة إضافة حدث -->
+  <div class="task-input" id="calendar-form" style="display:none; margin-top:20px;">
+    <h3>إضافة حدث لليوم <span id="selected-day"></span></h3>
+    <input type="text" id="calendarEventInput" placeholder="أدخل الحدث">
+    <button onclick="saveCalendarEvent()">إضافة</button>
+  </div>
+</div>
+
+
+    <!-- Table -->
+    <div id="table" class="hidden">
+      <h1>📋 الجدول</h1>
+      <div class="task-input">
+        <input type="text" id="dayInput" placeholder="اليوم">
+        <input type="text" id="taskTableInput" placeholder="المهمة">
+        <input type="time" id="timeInput">
+        <button onclick="addTableTask()">إضافة</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>اليوم</th>
+            <th>المهمة</th>
+            <th>الوقت</th>
+            <th>حذف</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- Tasks -->
+    <div id="tasks" class="hidden">
+      <h1>✅ المهام</h1>
+      <div class="task-input">
+        <input type="text" id="taskInput" placeholder="أدخل مهمة جديدة">
+        <button onclick="addTask()">إضافة</button>
+      </div>
+      <div class="tasks" id="taskList"></div>
+    </div>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container"></div>
+
+  <!-- Profile Modal -->
+  <div id="profileModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>👤 الملف الشخصي</h2>
+      <p>الاسم: مستخدم تجريبي</p>
+      <p>البريد: user@example.com</p>
+      <button onclick="closeModal('profileModal')">إغلاق</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
